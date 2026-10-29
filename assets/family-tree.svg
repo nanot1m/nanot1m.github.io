@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+<defs><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#d8dfd8"/></pattern></defs>
+<rect width="960" height="540" rx="12" fill="#f5f7f3"/><rect width="960" height="540" fill="url(#dots)"/>
+<g fill="none" stroke="#94aa9d" stroke-width="3"><path d="M340 190H620M480 190V290M250 290H710M250 290V340M480 290V340M710 290V340"/></g>
+<g fill="#fff" stroke="#d0dcd3" stroke-width="2"><rect x="230" y="100" width="220" height="130" rx="14"/><rect x="510" y="100" width="220" height="130" rx="14"/><rect x="150" y="340" width="200" height="120" rx="14"/><rect x="380" y="340" width="200" height="120" rx="14"/><rect x="610" y="340" width="200" height="120" rx="14"/></g>
+<g fill="#e0ece3"><circle cx="340" cy="139" r="20"/><circle cx="620" cy="139" r="20"/><circle cx="250" cy="377" r="18"/><circle cx="480" cy="377" r="18"/><circle cx="710" cy="377" r="18"/></g>
+<g fill="#315f49" font-family="system-ui,sans-serif" font-size="19" text-anchor="middle"><text x="340" y="184">Alex</text><text x="620" y="184">Sam</text><text x="250" y="419">Jamie</text><text x="480" y="419">Robin</text><text x="710" y="419">Charlie</text></g>
+<g fill="#819389"><rect x="306" y="200" width="68" height="4" rx="2"/><rect x="586" y="200" width="68" height="4" rx="2"/><rect x="219" y="434" width="62" height="4" rx="2"/><rect x="449" y="434" width="62" height="4" rx="2"/><rect x="679" y="434" width="62" height="4" rx="2"/></g>
+<text x="30" y="38" fill="#52685a" font-family="system-ui,sans-serif" font-size="14">Family Tree · Example tree</text>
+</svg>

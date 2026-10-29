@@ -8,71 +8,89 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="wordmark" href="#">TK<span>.</span></a>
+    <div><a href="#projects">Work</a><a href="#resume">Experience</a><a href="mailto:bboytx@gmail.com">Get in touch ↗</a></div>
+  </nav>
   <header class="hero">
-    <img class="avatar" src="https://avatars.githubusercontent.com/u/9278185?v=4" alt="" width="96" height="96">
-    <div>
-      <h1>Teimuraz Khazamov</h1>
-      <p class="tagline">Senior Software Engineer · Berlin, Germany</p>
-      <p class="intro">11+ years in frontend architecture, web performance and shared platforms. Currently on Canvas Core at Miro, building the ECS-based engine behind the real-time collaborative canvas.</p>
-      <nav class="links">
-        <a href="https://github.com/nanot1m">GitHub</a>
-        <a href="https://linkedin.com/in/teimuraz-khazamov-b48022190">LinkedIn</a>
-        <a href="mailto:bboytx@gmail.com">Email</a>
-        <a href="resume.pdf">Resume (PDF)</a>
+    <div class="hero-identity">
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/9278185?v=4" alt="" width="56" height="56">
+      <p class="eyebrow">Senior Software Engineer · Berlin</p>
+      <h1>Teimuraz<br>Khazamov</h1>
+    </div>
+    <div class="hero-copy">
+      <p class="intro">I work on canvas architecture at Miro. Outside work, I build macOS tools and experiment with WebGPU, physics and interactive graphics.</p>
+      <p class="hero-summary">11+ years in frontend architecture and web performance.</p>
+      <nav class="social-links" aria-label="Profile and contact links">
+        <a href="https://github.com/nanot1m">GitHub ↗</a>
+        <a href="https://linkedin.com/in/teimuraz-khazamov-b48022190">LinkedIn ↗</a>
+        <a href="https://x.com/nanot1m">X ↗</a>
+        <a href="mailto:bboytx@gmail.com">Email ↗</a>
+        <a href="resume.pdf">Resume ↗</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="bento">
-          <article class="tile big">
-            <img src="assets/better-win-manager.png" alt="" draggable="false">
-            <img class="fade" src="assets/better-win-manager-2.png" alt="" draggable="false">
+      <div class="section-head"><div><p class="eyebrow">01 / Work</p><h2>Projects</h2></div><p>macOS tools, interactive graphics and a family tree editor.</p></div>
+      <div class="project-grid">
+          <article class="project featured">
+            <div class="preview preview-slideshow"><img src="assets/better-win-manager.png" alt="Mac desktop arranged into tiled window columns" draggable="false"><img class="preview-alternate" src="assets/better-win-manager-2.png" alt="" aria-hidden="true" draggable="false"></div>
             <div class="caption">
               <h3>BetterWM</h3>
               <p>Column-based tiling window manager for macOS. Tile windows by ⌥-dragging them into place; everything else stays a normal, freely movable window.</p>
               <p class="meta"><span>Swift</span><a href="https://nanot1m.github.io/better-win-manager/">Website</a><a href="https://github.com/nanot1m/better-win-manager">Source</a></p>
             </div>
           </article>
-          <article class="tile wide">
-            <img src="assets/my-file-picker.png" alt="" draggable="false">
-            <img class="fade" src="assets/my-file-picker-2.png" alt="" draggable="false">
-            <div class="caption">
-              <h3>File Picker</h3>
-              <p>Keyboard-first, Spotlight-style file navigator for macOS. AppKit front end over a C engine.</p>
-              <p class="meta"><span>Swift · C</span><a href="https://nanot1m.github.io/my-file-picker/">Website</a><a href="https://github.com/nanot1m/my-file-picker">Source</a></p>
-            </div>
-          </article>
-          <article class="tile wide">
-            <img src="assets/Blitz.png" alt="" draggable="false">
+          <article class="project">
+            <div class="preview"><img src="assets/Blitz.png" alt="Blitz WebGPU canvas demo" draggable="false"></div>
             <div class="caption">
               <h3>Blitz</h3>
               <p>WebGPU canvas backed by a C entity component system compiled to WebAssembly. One draw call for shapes, text and overlays.</p>
               <p class="meta"><span>TypeScript · C · WebGPU</span><a href="https://nanot1m.github.io/Blitz/">Demo</a><a href="https://github.com/nanot1m/Blitz">Source</a></p>
             </div>
           </article>
-          <article class="tile">
-            <img class="bottom" src="assets/my-tetris.png" alt="" draggable="false">
+          <article class="project">
+            <div class="preview preview-slideshow"><img src="assets/my-file-picker.png" alt="File Picker keyboard-first file navigator" loading="lazy" draggable="false"><img class="preview-alternate" src="assets/my-file-picker-2.png" alt="" aria-hidden="true" loading="lazy" draggable="false"></div>
             <div class="caption">
-              <h3>my-tetris</h3>
+              <h3>File Picker</h3>
+              <p>Keyboard-first, Spotlight-style file navigator for macOS. AppKit front end over a C engine.</p>
+              <p class="meta"><span>Swift · C</span><a href="https://nanot1m.github.io/my-file-picker/">Website</a><a href="https://github.com/nanot1m/my-file-picker">Source</a></p>
+            </div>
+          </article>
+          <article class="project featured">
+            <div class="preview"><img src="assets/family-tree.svg" alt="Illustration of an example family tree with two parents and three children" loading="lazy" draggable="false"></div>
+            <div class="caption">
+              <h3>Family Tree</h3>
+              <p>Local-first family tree editor with an interactive canvas, automatic layout and genogram notation. Works offline, keeps photos in your tree file and exports to PDF.</p>
+              <p class="meta"><span>JavaScript · HTML · CSS</span><a href="https://nanot1m.github.io/my-genealogical-tree/">Demo</a><a href="https://github.com/nanot1m/my-genealogical-tree">Source</a></p>
+            </div>
+          </article>
+      </div>
+      <div class="section-head experiments-head"><div><p class="eyebrow">Side projects</p><h2>Experiments</h2></div><p>Exploring physics, light and play.</p></div>
+      <div class="experiment-grid">
+          <article class="project experiment">
+            <div class="preview"><img class="bottom" src="assets/my-tetris.png" alt="" loading="lazy" draggable="false"></div>
+            <div class="caption">
+              <h3>Tetris</h3>
               <p>Tetris from scratch in TypeScript: seeded random generator, level progression and a tiny DOM renderer.</p>
               <p class="meta"><span>TypeScript</span><a href="https://github.com/nanot1m/my-tetris">Source</a></p>
             </div>
           </article>
-          <article class="tile wide">
-            <img class="center" src="assets/gravity-forces.png" alt="" draggable="false">
+          <article class="project experiment">
+            <div class="preview"><img class="center" src="assets/gravity-forces.png" alt="" loading="lazy" draggable="false"></div>
             <div class="caption">
-              <h3>gravity-forces</h3>
+              <h3>Gravity Forces</h3>
               <p>N-body solar system simulator on a 2D canvas with real masses and Newton's constant. Follow any planet, tune the time step live.</p>
               <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/gravity-forces/">Demo</a><a href="https://github.com/nanot1m/gravity-forces">Source</a></p>
             </div>
           </article>
-          <article class="tile">
-            <img class="center" src="assets/shadow-caster.png" alt="" draggable="false">
+          <article class="project experiment">
+            <div class="preview"><img class="center" src="assets/shadow-caster.png" alt="" loading="lazy" draggable="false"></div>
             <div class="caption">
-              <h3>shadow-caster</h3>
+              <h3>Shadow Caster</h3>
               <p>2D ray-cast lighting on canvas. Draw walls with the mouse and watch the light cast shadows in real time.</p>
               <p class="meta"><span>TypeScript</span><a href="https://nanot1m.github.io/shadow-caster/">Demo</a><a href="https://github.com/nanot1m/shadow-caster">Source</a></p>
             </div>
@@ -82,21 +100,13 @@
     </section>
 
     <section id="resume">
-      <h2>Resume</h2>
-      <p class="download"><a href="resume.pdf">Download PDF</a></p>
+      <div class="section-head"><div><p class="eyebrow">02 / Background</p><h2>Experience</h2></div><a class="text-link" href="resume.pdf">Full resume ↗</a></div>
 
-      <h3>Technical expertise</h3>
-      <p><strong>Technologies:</strong> TypeScript, JavaScript, React, WebAssembly, HTML, CSS, Java, PHP, Kafka</p>
-      <p><strong>Architecture:</strong> Frontend platforms, Entity Component System (ECS), API design, object lifecycle and composition, design systems, real-time applications, client-side data processing</p>
-
-      <h3>Experience</h3>
       <div class="job">
         <div class="job-head"><strong>Miro</strong><span>Sep 2021 – Present</span></div>
         <p class="role">Senior Frontend Engineer, Canvas Core · Berlin, Germany</p>
         <ul>
           <li>Design and evolve the core application architecture behind Miro's real-time collaborative canvas, including ECS-based systems and interactive object behavior.</li>
-          <li>Develop systems for object lifecycle, composition, state and interactions, and build extensible APIs and abstractions used by product teams across Miro.</li>
-          <li>Drive technical design and architectural decisions across multiple teams.</li>
         </ul>
       </div>
       <div class="job">
@@ -104,7 +114,6 @@
         <p class="role">Frontend Engineer · Berlin, Germany</p>
         <ul>
           <li>Modernized the order management system, migrating its frontend to a React single-page application.</li>
-          <li>Decomposed a PHP monolith into Java microservices and configured Kafka pipelines.</li>
         </ul>
       </div>
       <div class="job">
@@ -112,7 +121,6 @@
         <p class="role">Frontend Engineer, Yandex Travel &amp; Avia · Yekaterinburg, Russia</p>
         <ul>
           <li>Designed client-side architecture to process search result sets containing millions of entries for Yandex Travel and Yandex Avia.</li>
-          <li>Built real-time filtering and sorting in the browser, focusing on responsiveness and performance with large datasets.</li>
         </ul>
       </div>
       <div class="job">
@@ -120,11 +128,10 @@
         <p class="role">Lead Frontend Engineer · Yekaterinburg, Russia</p>
         <ul>
           <li>Led development and evolution of a company-wide design system used across dozens of products and engineering teams.</li>
-          <li>Designed reusable UI components, frontend infrastructure and component-library APIs; partnered with designers and engineers on adoption and consistency.</li>
         </ul>
       </div>
 
-      <h3>Education</h3>
+      <h3 class="education-label">Education</h3>
       <div class="job">
         <div class="job-head"><strong>Master's degree, Nanotechnology</strong><span>2009 – 2015</span></div>
         <p class="role">Ural State University named after A. M. Gorky</p>
@@ -133,7 +140,8 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Teimuraz Khazamov</p>
+    <div class="contact"><p class="eyebrow">03 / Contact</p><h2>Get in touch</h2><a class="contact-link" href="mailto:bboytx@gmail.com">Email me ↗</a></div>
+    <div class="footer-bottom"><p>© <span id="year"></span> Teimuraz Khazamov</p><nav class="social-links" aria-label="Social links"><a href="https://github.com/nanot1m">GitHub ↗</a><a href="https://linkedin.com/in/teimuraz-khazamov-b48022190">LinkedIn ↗</a><a href="https://x.com/nanot1m">X / @nanot1m ↗</a><a href="mailto:bboytx@gmail.com">Email ↗</a></nav></div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
