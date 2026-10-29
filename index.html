@@ -26,42 +26,60 @@
   <main>
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <img class="shot" src="assets/better-win-manager.png" alt="BetterWM tiling three windows in columns" loading="lazy">
-          <h3><a href="https://github.com/nanot1m/better-win-manager">BetterWM</a></h3>
-          <p>Column-based tiling window manager for macOS. Tile windows by ⌥-dragging them into place; everything else stays a normal, freely movable window. Virtual workspaces, auto-tiling strategies, notch-aware status bar, signed and notarized releases via Homebrew.</p>
-          <p class="meta"><span>Swift</span><a href="https://nanot1m.github.io/better-win-manager/">Website</a><a href="https://github.com/nanot1m/better-win-manager">Source</a></p>
-        </article>
-        <article class="card">
-          <img class="shot contain" src="assets/my-file-picker.png" alt="File Picker search results" loading="lazy">
-          <h3><a href="https://github.com/nanot1m/my-file-picker">my-file-picker</a></h3>
-          <p>Keyboard-first, Spotlight-style file navigator for macOS. AppKit front end over a C engine for fast filesystem traversal and matching.</p>
-          <p class="meta"><span>Swift · C</span><a href="https://nanot1m.github.io/my-file-picker/">Website</a><a href="https://github.com/nanot1m/my-file-picker">Source</a></p>
-        </article>
-        <article class="card">
-          <img class="shot" src="assets/Blitz.png" alt="Blitz demo slide rendered with WebGPU" loading="lazy">
-          <h3><a href="https://github.com/nanot1m/Blitz">Blitz</a></h3>
-          <p>WebGPU canvas experiment backed by a C entity component system compiled to WebAssembly. WASM owns entities, selection, camera and scene queries; TypeScript streams packed render data to WGSL compute and render shaders.</p>
-          <p class="meta"><span>TypeScript · C · WebGPU</span><a href="https://nanot1m.github.io/Blitz/">Demo</a><a href="https://github.com/nanot1m/Blitz">Source</a></p>
-        </article>
-        <article class="card">
-          <h3><a href="https://github.com/nanot1m/my-tetris">my-tetris</a></h3>
-          <p>Tetris written from scratch in TypeScript: seeded random generator, level progression and a small DOM renderer, no game framework.</p>
-          <p class="meta"><span>TypeScript</span><a href="https://github.com/nanot1m/my-tetris">Source</a></p>
-        </article>
-        <article class="card">
-          <img class="shot" src="assets/gravity-forces.png" alt="Planet orbits traced in the gravity simulator" loading="lazy">
-          <h3><a href="https://github.com/nanot1m/gravity-forces">gravity-forces</a></h3>
-          <p>N-body gravity simulator of the solar system on a 2D canvas, using real masses and Newton's gravitational constant. Follow any planet, tweak step size and speed live.</p>
-          <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/gravity-forces/">Demo</a><a href="https://github.com/nanot1m/gravity-forces">Source</a></p>
-        </article>
-        <article class="card">
-          <img class="shot" src="assets/shadow-caster.png" alt="Light casting shadows inside a maze" loading="lazy">
-          <h3><a href="https://github.com/nanot1m/shadow-caster">shadow-caster</a></h3>
-          <p>2D ray-cast lighting and shadow experiment on canvas.</p>
-          <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/shadow-caster/">Demo</a><a href="https://github.com/nanot1m/shadow-caster">Source</a></p>
-        </article>
+      <div class="carousel" id="carousel">
+        <div class="ring" id="ring">
+          <article class="slide">
+            <img src="assets/better-win-manager.png" alt="" draggable="false">
+            <div class="caption">
+              <h3>BetterWM</h3>
+              <p>Column-based tiling window manager for macOS. Tile windows by ⌥-dragging them into place; everything else stays a normal, freely movable window.</p>
+              <p class="meta"><span>Swift</span><a href="https://nanot1m.github.io/better-win-manager/">Website</a><a href="https://github.com/nanot1m/better-win-manager">Source</a></p>
+            </div>
+          </article>
+          <article class="slide">
+            <img class="fit" src="assets/my-file-picker.png" alt="" draggable="false">
+            <div class="caption">
+              <h3>File Picker</h3>
+              <p>Keyboard-first, Spotlight-style file navigator for macOS. AppKit front end over a C engine.</p>
+              <p class="meta"><span>Swift · C</span><a href="https://nanot1m.github.io/my-file-picker/">Website</a><a href="https://github.com/nanot1m/my-file-picker">Source</a></p>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/Blitz.png" alt="" draggable="false">
+            <div class="caption">
+              <h3>Blitz</h3>
+              <p>WebGPU canvas backed by a C entity component system compiled to WebAssembly. One draw call for shapes, text and overlays.</p>
+              <p class="meta"><span>TypeScript · C · WebGPU</span><a href="https://nanot1m.github.io/Blitz/">Demo</a><a href="https://github.com/nanot1m/Blitz">Source</a></p>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/my-tetris.svg" alt="" draggable="false">
+            <div class="caption">
+              <h3>my-tetris</h3>
+              <p>Tetris from scratch in TypeScript: seeded random generator, level progression and a tiny DOM renderer.</p>
+              <p class="meta"><span>TypeScript</span><a href="https://github.com/nanot1m/my-tetris">Source</a></p>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/gravity-forces.png" alt="" draggable="false">
+            <div class="caption">
+              <h3>gravity-forces</h3>
+              <p>N-body solar system simulator on a 2D canvas with real masses and Newton's constant. Follow any planet, tune the time step live.</p>
+              <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/gravity-forces/">Demo</a><a href="https://github.com/nanot1m/gravity-forces">Source</a></p>
+            </div>
+          </article>
+          <article class="slide">
+            <img src="assets/shadow-caster.png" alt="" draggable="false">
+            <div class="caption">
+              <h3>shadow-caster</h3>
+              <p>2D ray-cast lighting on canvas. Draw walls with the mouse and watch the light cast shadows in real time.</p>
+              <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/shadow-caster/">Demo</a><a href="https://github.com/nanot1m/shadow-caster">Source</a></p>
+            </div>
+          </article>
+        </div>
+        <button class="nav prev" id="prev" aria-label="Previous project">‹</button>
+        <button class="nav next" id="next" aria-label="Next project">›</button>
+        <div class="dots" id="dots"></div>
       </div>
       <p class="more"><a href="https://github.com/nanot1m?tab=repositories">All repositories →</a></p>
     </section>
@@ -120,6 +138,41 @@
   <footer>
     <p>© <span id="year"></span> Teimuraz Khazamov</p>
   </footer>
+  <script>
+    const ring = document.getElementById('ring')
+    const slides = [...ring.children]
+    const n = slides.length, step = 360 / n
+    const SPEED = 4 // degrees per second
+    let pos = 0, paused = false, dragging = false, dragStart = 0, dragPos = 0, snapTo = null, last = performance.now()
+    const dots = document.getElementById('dots')
+    slides.forEach((_, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Project ' + (i + 1)); b.onclick = () => snap(i); dots.append(b) })
+    let radius = 0
+    function measure() { radius = Math.round(slides[0].offsetWidth / 2 / Math.tan(Math.PI / n)) + 40; slides.forEach((s, i) => s.style.transform = `rotateY(${i * step}deg) translateZ(${radius}px)`) }
+    function render() {
+      ring.style.transform = `translateZ(${-radius}px) rotateY(${-pos}deg)`
+      const cur = ((Math.round(pos / step) % n) + n) % n
+      slides.forEach((s, i) => s.classList.toggle('active', i === cur))
+      ;[...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur))
+    }
+    function snap(i) { const base = Math.round(pos / step) * step; let d = i * step - (((base % 360) + 360) % 360); if (d > 180) d -= 360; if (d < -180) d += 360; snapTo = base + d; paused = true; clearTimeout(snap.t); snap.t = setTimeout(() => { paused = false }, 5000) }
+    function frame(now) {
+      const dt = Math.min((now - last) / 1000, .1); last = now
+      if (snapTo !== null) { pos += (snapTo - pos) * Math.min(1, dt * 8); if (Math.abs(snapTo - pos) < .05) { pos = snapTo; snapTo = null } }
+      else if (!paused && !dragging) pos += SPEED * dt
+      render(); requestAnimationFrame(frame)
+    }
+    const car = document.getElementById('carousel')
+    document.getElementById('prev').onclick = () => snap(Math.round(pos / step) - 1)
+    document.getElementById('next').onclick = () => snap(Math.round(pos / step) + 1)
+    car.addEventListener('mouseenter', () => { paused = true })
+    car.addEventListener('mouseleave', () => { paused = false })
+    car.addEventListener('pointerdown', e => { if (e.target.closest('a,button')) return; dragging = true; dragStart = e.clientX; dragPos = pos; snapTo = null; car.setPointerCapture(e.pointerId) })
+    car.addEventListener('pointermove', e => { if (dragging) pos = dragPos - (e.clientX - dragStart) * step / 300 })
+    car.addEventListener('pointerup', () => { if (!dragging) return; dragging = false; snap(Math.round(pos / step)) })
+    document.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') snap(Math.round(pos / step) - 1); if (e.key === 'ArrowRight') snap(Math.round(pos / step) + 1) })
+    addEventListener('resize', measure)
+    measure(); requestAnimationFrame(frame)
+  </script>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>
