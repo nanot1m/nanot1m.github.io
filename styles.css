@@ -1,0 +1,61 @@
+:root {
+  --bg: #fcfcfc;
+  --fg: #1a1a1a;
+  --muted: #666;
+  --accent: #1f6f78;
+  --border: #e4e4e4;
+  --card: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111214;
+    --fg: #e8e8e8;
+    --muted: #9a9a9a;
+    --accent: #6cc3cc;
+    --border: #2a2b2e;
+    --card: #18191c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .4em; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.4rem; margin-top: 3rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.05rem; margin-top: 1.6rem; }
+.hero, main, footer { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+.hero { display: flex; gap: 1.5rem; align-items: flex-start; padding-top: 4rem; }
+.avatar { border-radius: 50%; flex-shrink: 0; }
+.tagline { margin: 0 0 .8rem; color: var(--muted); }
+.intro { margin: 0 0 1rem; max-width: 60ch; }
+.links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+.card h3 { margin-top: 0; }
+.card p { margin: 0 0 .8rem; font-size: .95rem; }
+.card .meta { margin-top: auto; margin-bottom: 0; display: flex; gap: .9rem; font-size: .85rem; color: var(--muted); }
+.card .meta span { margin-right: auto; }
+.more, .download { margin-top: 1.2rem; }
+.job { margin-bottom: 1.4rem; }
+.job-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.job-head span { color: var(--muted); font-size: .9rem; }
+.role { margin: 0 0 .4rem; color: var(--muted); font-size: .95rem; }
+.job ul { margin: 0; padding-left: 1.2rem; }
+.job li { margin-bottom: .3rem; }
+footer { margin-top: 4rem; padding-bottom: 2rem; color: var(--muted); font-size: .85rem; }
+@media (max-width: 600px) {
+  .hero { flex-direction: column; padding-top: 2.5rem; }
+}
