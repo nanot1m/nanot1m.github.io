@@ -26,9 +26,8 @@
   <main>
     <section id="projects">
       <h2>Projects</h2>
-      <div class="row" id="row">
-        <div class="track" id="track">
-          <article class="slide">
+      <div class="bento">
+          <article class="tile big">
             <img src="assets/better-win-manager.png" alt="" draggable="false">
             <img class="fade" src="assets/better-win-manager-2.png" alt="" draggable="false">
             <div class="caption">
@@ -37,7 +36,7 @@
               <p class="meta"><span>Swift</span><a href="https://nanot1m.github.io/better-win-manager/">Website</a><a href="https://github.com/nanot1m/better-win-manager">Source</a></p>
             </div>
           </article>
-          <article class="slide">
+          <article class="tile wide">
             <img src="assets/my-file-picker.png" alt="" draggable="false">
             <img class="fade" src="assets/my-file-picker-2.png" alt="" draggable="false">
             <div class="caption">
@@ -46,7 +45,7 @@
               <p class="meta"><span>Swift · C</span><a href="https://nanot1m.github.io/my-file-picker/">Website</a><a href="https://github.com/nanot1m/my-file-picker">Source</a></p>
             </div>
           </article>
-          <article class="slide">
+          <article class="tile wide">
             <img src="assets/Blitz.png" alt="" draggable="false">
             <div class="caption">
               <h3>Blitz</h3>
@@ -54,7 +53,7 @@
               <p class="meta"><span>TypeScript · C · WebGPU</span><a href="https://nanot1m.github.io/Blitz/">Demo</a><a href="https://github.com/nanot1m/Blitz">Source</a></p>
             </div>
           </article>
-          <article class="slide">
+          <article class="tile">
             <img class="bottom" src="assets/my-tetris.png" alt="" draggable="false">
             <div class="caption">
               <h3>my-tetris</h3>
@@ -62,23 +61,22 @@
               <p class="meta"><span>TypeScript</span><a href="https://github.com/nanot1m/my-tetris">Source</a></p>
             </div>
           </article>
-          <article class="slide">
-            <img src="assets/gravity-forces.png" alt="" draggable="false">
+          <article class="tile wide">
+            <img class="center" src="assets/gravity-forces.png" alt="" draggable="false">
             <div class="caption">
               <h3>gravity-forces</h3>
               <p>N-body solar system simulator on a 2D canvas with real masses and Newton's constant. Follow any planet, tune the time step live.</p>
               <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/gravity-forces/">Demo</a><a href="https://github.com/nanot1m/gravity-forces">Source</a></p>
             </div>
           </article>
-          <article class="slide">
-            <img src="assets/shadow-caster.png" alt="" draggable="false">
+          <article class="tile">
+            <img class="center" src="assets/shadow-caster.png" alt="" draggable="false">
             <div class="caption">
               <h3>shadow-caster</h3>
               <p>2D ray-cast lighting on canvas. Draw walls with the mouse and watch the light cast shadows in real time.</p>
-              <p class="meta"><span>TypeScript · Canvas</span><a href="https://nanot1m.github.io/shadow-caster/">Demo</a><a href="https://github.com/nanot1m/shadow-caster">Source</a></p>
+              <p class="meta"><span>TypeScript</span><a href="https://nanot1m.github.io/shadow-caster/">Demo</a><a href="https://github.com/nanot1m/shadow-caster">Source</a></p>
             </div>
           </article>
-        </div>
       </div>
       <p class="more"><a href="https://github.com/nanot1m?tab=repositories">All repositories →</a></p>
     </section>
@@ -137,44 +135,6 @@
   <footer>
     <p>© <span id="year"></span> Teimuraz Khazamov</p>
   </footer>
-  <script>
-    const row = document.getElementById('row')
-    const track = document.getElementById('track')
-    const originals = [...track.children]
-    for (let c = 0; c < 2; c++) originals.forEach(el => track.append(el.cloneNode(true)))
-    const slides = [...track.children]
-    const SPEED = 40 // px per second
-    const STIFF = 120, DAMP = 20
-    let offset = 0, vel = 0, target = null, hovered = null, last = performance.now()
-    const setWidth = () => track.scrollWidth / 3
-    const mod = (a, b) => ((a % b) + b) % b
-    function centerTarget(el, mouseX) {
-      const W = setWidth(), x = mod(offset, W), half = el.offsetWidth / 2
-      const rowCenter = row.getBoundingClientRect().left + row.clientWidth / 2
-      let anchor = rowCenter + (mouseX - rowCenter) * .5
-      anchor = Math.max(mouseX - (half - 40), Math.min(mouseX + (half - 40), anchor))
-      let want = el.offsetLeft + half - (anchor - row.getBoundingClientRect().left)
-      let d = mod(want - x, W); if (d > W / 2) d -= W
-      return offset + d
-    }
-    function frame(now) {
-      const dt = Math.min((now - last) / 1000, .05); last = now
-      if (target !== null) {
-        const a = STIFF * (target - offset) - DAMP * vel
-        vel += a * dt; offset += vel * dt
-      } else { vel = 0; offset += SPEED * dt }
-      track.style.transform = `translateX(${-mod(offset, setWidth())}px)`
-      requestAnimationFrame(frame)
-    }
-    row.addEventListener('mousemove', e => {
-      const el = e.target.closest('.slide')
-      if (!el || el === hovered) return
-      hovered?.classList.remove('active'); hovered = el; el.classList.add('active')
-      target = centerTarget(el, e.clientX)
-    })
-    row.addEventListener('mouseleave', () => { hovered?.classList.remove('active'); hovered = null; target = null })
-    requestAnimationFrame(frame)
-  </script>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>

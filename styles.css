@@ -29,37 +29,40 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 .4em; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.4rem; margin-top: 3rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
 h3 { font-size: 1.05rem; margin-top: 1.6rem; }
-.hero, main, footer { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+.hero, main, footer { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem; }
 .hero { display: flex; gap: 1.5rem; align-items: flex-start; padding-top: 4rem; }
 .avatar { border-radius: 50%; flex-shrink: 0; }
 .tagline { margin: 0 0 .8rem; color: var(--muted); }
 .intro { margin: 0 0 1rem; max-width: 60ch; }
 .links { display: flex; flex-wrap: wrap; gap: 1rem; }
-.row { position: relative; width: 100vw; margin: 2rem 0 1rem calc(50% - 50vw); padding: 1.5rem 0; overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
-.track { display: flex; gap: 1.25rem; width: max-content; will-change: transform; }
-.slide {
-  position: relative; flex: 0 0 400px; height: 270px; border-radius: 16px; overflow: hidden; background: #111;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25); opacity: .8;
-  transition: transform .6s cubic-bezier(.2,1.6,.4,1), opacity .4s, box-shadow .4s;
-}
-.slide.active { transform: scale(1.06); opacity: 1; box-shadow: 0 24px 50px rgba(0,0,0,.35); z-index: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; pointer-events: none; }
-.slide img.bottom { object-position: center bottom; }
-.slide img.fade { position: absolute; inset: 0; animation: crossfade 8s ease-in-out infinite; }
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 1rem; margin-top: 1.5rem; }
+.tile { position: relative; border-radius: 18px; overflow: hidden; background: #111; isolation: isolate; cursor: default;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12), 0 14px 34px rgba(0,0,0,.18); transition: transform .5s cubic-bezier(.2,1,.3,1), box-shadow .5s; }
+.tile:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,.15), 0 28px 60px rgba(0,0,0,.3); }
+.tile.big { grid-column: span 2; grid-row: span 2; }
+.tile.wide { grid-column: span 2; }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .8s cubic-bezier(.2,1,.3,1); pointer-events: none; }
+.tile:hover img { transform: scale(1.05); }
+.tile img.center { object-position: center; }
+.tile img.bottom { object-position: center bottom; }
+.tile img.fade { animation: crossfade 8s ease-in-out infinite; }
 @keyframes crossfade { 0%, 40% { opacity: 0 } 50%, 90% { opacity: 1 } 100% { opacity: 0 } }
-.caption {
-  position: absolute; inset: auto 0 0 0; padding: 3rem 1.2rem 1rem; color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.65) 55%, transparent 100%);
-}
-.caption h3 { margin: 0 0 .3rem; font-size: 1.2rem; }
-.caption p { margin: 0 0 .5rem; font-size: .88rem; line-height: 1.45; color: #e6e6e6; }
-.caption .meta { display: flex; gap: .9rem; margin: 0; font-size: .8rem; color: #bbb; }
+.caption { position: absolute; inset: auto 0 0 0; padding: 3.5rem 1.2rem 1rem; color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,.6) 50%, transparent 100%); }
+.caption h3 { margin: 0; font-size: 1.15rem; letter-spacing: -.01em; }
+.big .caption h3 { font-size: 1.6rem; }
+.caption p { margin: .4rem 0 0; font-size: .86rem; line-height: 1.45; color: #e3e3e3;
+  max-height: 0; opacity: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.2,1,.3,1), opacity .4s, margin .5s; }
+.tile:hover .caption p, .tile:focus-within .caption p { max-height: 8rem; opacity: 1; }
+.big .caption p { max-height: none; opacity: 1; }
+.caption .meta { display: flex; gap: .9rem; margin-top: .6rem; font-size: .8rem; color: #bbb; max-height: none; opacity: 1; }
 .caption .meta span { margin-right: auto; }
 .caption a { color: #fff; font-weight: 500; }
-@media (max-width: 600px) {
-  .slide { flex-basis: 300px; height: 220px; }
-  .caption p:not(.meta) { display: none; }
+@media (max-width: 760px) {
+  .bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+  .tile.big { grid-row: span 2; }
+  .caption p { display: none; }
+  .caption .meta { display: flex; }
 }
 .more, .download { margin-top: 1.2rem; }
 .job { margin-bottom: 1.4rem; }
