@@ -26,8 +26,8 @@
   <main>
     <section id="projects">
       <h2>Projects</h2>
-      <div class="carousel" id="carousel">
-        <div class="ring" id="ring">
+      <div class="row" id="row">
+        <div class="track" id="track">
           <article class="slide">
             <img src="assets/better-win-manager.png" alt="" draggable="false">
             <div class="caption">
@@ -77,9 +77,6 @@
             </div>
           </article>
         </div>
-        <button class="nav prev" id="prev" aria-label="Previous project">‹</button>
-        <button class="nav next" id="next" aria-label="Next project">›</button>
-        <div class="dots" id="dots"></div>
       </div>
       <p class="more"><a href="https://github.com/nanot1m?tab=repositories">All repositories →</a></p>
     </section>
@@ -139,39 +136,39 @@
     <p>© <span id="year"></span> Teimuraz Khazamov</p>
   </footer>
   <script>
-    const ring = document.getElementById('ring')
-    const slides = [...ring.children]
-    const n = slides.length, step = 360 / n
-    const SPEED = 4 // degrees per second
-    let pos = 0, paused = false, dragging = false, dragStart = 0, dragPos = 0, snapTo = null, last = performance.now()
-    const dots = document.getElementById('dots')
-    slides.forEach((_, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Project ' + (i + 1)); b.onclick = () => snap(i); dots.append(b) })
-    let radius = 0
-    function measure() { radius = Math.round(slides[0].offsetWidth / 2 / Math.tan(Math.PI / n)) + 40; slides.forEach((s, i) => s.style.transform = `rotateY(${i * step}deg) translateZ(${radius}px)`) }
-    function render() {
-      ring.style.transform = `translateZ(${-radius}px) rotateY(${-pos}deg)`
-      const cur = ((Math.round(pos / step) % n) + n) % n
-      slides.forEach((s, i) => s.classList.toggle('active', i === cur))
-      ;[...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur))
+    const row = document.getElementById('row')
+    const track = document.getElementById('track')
+    const originals = [...track.children]
+    for (let c = 0; c < 2; c++) originals.forEach(el => track.append(el.cloneNode(true)))
+    const slides = [...track.children]
+    const SPEED = 40 // px per second
+    const STIFF = 120, DAMP = 20
+    let offset = 0, vel = 0, target = null, hovered = null, last = performance.now()
+    const setWidth = () => track.scrollWidth / 3
+    const mod = (a, b) => ((a % b) + b) % b
+    function centerTarget(el) {
+      const W = setWidth(), x = mod(offset, W)
+      let want = el.offsetLeft + el.offsetWidth / 2 - row.clientWidth / 2
+      let d = mod(want - x, W); if (d > W / 2) d -= W
+      return offset + d
     }
-    function snap(i) { const base = Math.round(pos / step) * step; let d = i * step - (((base % 360) + 360) % 360); if (d > 180) d -= 360; if (d < -180) d += 360; snapTo = base + d; paused = true; clearTimeout(snap.t); snap.t = setTimeout(() => { paused = false }, 5000) }
     function frame(now) {
-      const dt = Math.min((now - last) / 1000, .1); last = now
-      if (snapTo !== null) { pos += (snapTo - pos) * Math.min(1, dt * 8); if (Math.abs(snapTo - pos) < .05) { pos = snapTo; snapTo = null } }
-      else if (!paused && !dragging) pos += SPEED * dt
-      render(); requestAnimationFrame(frame)
+      const dt = Math.min((now - last) / 1000, .05); last = now
+      if (target !== null) {
+        const a = STIFF * (target - offset) - DAMP * vel
+        vel += a * dt; offset += vel * dt
+      } else { vel = 0; offset += SPEED * dt }
+      track.style.transform = `translateX(${-mod(offset, setWidth())}px)`
+      requestAnimationFrame(frame)
     }
-    const car = document.getElementById('carousel')
-    document.getElementById('prev').onclick = () => snap(Math.round(pos / step) - 1)
-    document.getElementById('next').onclick = () => snap(Math.round(pos / step) + 1)
-    car.addEventListener('mouseenter', () => { paused = true })
-    car.addEventListener('mouseleave', () => { paused = false })
-    car.addEventListener('pointerdown', e => { if (e.target.closest('a,button')) return; dragging = true; dragStart = e.clientX; dragPos = pos; snapTo = null; car.setPointerCapture(e.pointerId) })
-    car.addEventListener('pointermove', e => { if (dragging) pos = dragPos - (e.clientX - dragStart) * step / 300 })
-    car.addEventListener('pointerup', () => { if (!dragging) return; dragging = false; snap(Math.round(pos / step)) })
-    document.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') snap(Math.round(pos / step) - 1); if (e.key === 'ArrowRight') snap(Math.round(pos / step) + 1) })
-    addEventListener('resize', measure)
-    measure(); requestAnimationFrame(frame)
+    row.addEventListener('mousemove', e => {
+      const el = e.target.closest('.slide')
+      if (!el || el === hovered) return
+      hovered?.classList.remove('active'); hovered = el; el.classList.add('active')
+      target = centerTarget(el)
+    })
+    row.addEventListener('mouseleave', () => { hovered?.classList.remove('active'); hovered = null; target = null })
+    requestAnimationFrame(frame)
   </script>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
