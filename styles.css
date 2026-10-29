@@ -44,6 +44,7 @@ h3 { font-size: 1.05rem; margin-top: 1.6rem; }
   display: flex;
   flex-direction: column;
 }
+.card .shot { display: block; width: calc(100% + 2.4rem); margin: -1.1rem -1.2rem .9rem; border-radius: 10px 10px 0 0; border-bottom: 1px solid var(--border); aspect-ratio: 16 / 10; object-fit: cover; object-position: top; background: #1a1a1a; }
 .card h3 { margin-top: 0; }
 .card p { margin: 0 0 .8rem; font-size: .95rem; }
 .card .meta { margin-top: auto; margin-bottom: 0; display: flex; gap: .9rem; font-size: .85rem; color: var(--muted); }
