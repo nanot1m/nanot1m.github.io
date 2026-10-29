@@ -37,7 +37,7 @@
             </div>
           </article>
           <article class="slide">
-            <img class="fit" src="assets/my-file-picker.png" alt="" draggable="false">
+            <img src="assets/my-file-picker.png" alt="" draggable="false">
             <div class="caption">
               <h3>File Picker</h3>
               <p>Keyboard-first, Spotlight-style file navigator for macOS. AppKit front end over a C engine.</p>
@@ -146,9 +146,12 @@
     let offset = 0, vel = 0, target = null, hovered = null, last = performance.now()
     const setWidth = () => track.scrollWidth / 3
     const mod = (a, b) => ((a % b) + b) % b
-    function centerTarget(el) {
-      const W = setWidth(), x = mod(offset, W)
-      let want = el.offsetLeft + el.offsetWidth / 2 - row.clientWidth / 2
+    function centerTarget(el, mouseX) {
+      const W = setWidth(), x = mod(offset, W), half = el.offsetWidth / 2
+      const rowCenter = row.getBoundingClientRect().left + row.clientWidth / 2
+      let anchor = rowCenter + (mouseX - rowCenter) * .5
+      anchor = Math.max(mouseX - (half - 40), Math.min(mouseX + (half - 40), anchor))
+      let want = el.offsetLeft + half - (anchor - row.getBoundingClientRect().left)
       let d = mod(want - x, W); if (d > W / 2) d -= W
       return offset + d
     }
@@ -165,7 +168,7 @@
       const el = e.target.closest('.slide')
       if (!el || el === hovered) return
       hovered?.classList.remove('active'); hovered = el; el.classList.add('active')
-      target = centerTarget(el)
+      target = centerTarget(el, e.clientX)
     })
     row.addEventListener('mouseleave', () => { hovered?.classList.remove('active'); hovered = null; target = null })
     requestAnimationFrame(frame)
