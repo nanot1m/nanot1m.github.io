@@ -45,6 +45,9 @@ h3 { font-size: 1.05rem; margin-top: 1.6rem; }
 }
 .slide.active { transform: scale(1.06); opacity: 1; box-shadow: 0 24px 50px rgba(0,0,0,.35); z-index: 1; }
 .slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; pointer-events: none; }
+.slide img.bottom { object-position: center bottom; }
+.slide img.fade { position: absolute; inset: 0; animation: crossfade 8s ease-in-out infinite; }
+@keyframes crossfade { 0%, 40% { opacity: 0 } 50%, 90% { opacity: 1 } 100% { opacity: 0 } }
 .caption {
   position: absolute; inset: auto 0 0 0; padding: 3rem 1.2rem 1rem; color: #fff;
   background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.65) 55%, transparent 100%);
